@@ -11,15 +11,15 @@ This repository is a modified version of [LVI_SAM](https://github.com/TixiaoShan
 ## Modification
 
 - Custom extrinsic parameters are adopted in the code.
-- The original code assumes there are no translations among sensors. Now extrinsic parameters including the translation and rotation among IMU, Camera, LiDAR in .yaml in the ```config``` folder are correctly used.
+- The original code assumes there are no translation between the sensors. Now extrinsic parameters including both translation and rotation among IMU, Camera, LiDAR in .yaml in the ```config``` folder are correctly used.
 
 
 ---
 
-## Compile
+## Warnings
 
-You can use the following commands to download and compile the package.
-
+- Currently, the code is modified to use the ```Ouster``` lidar sensor.
+- If you want to use the velodyne sensor, you have to uncomment (https://github.com/epicjung/LVI_SAM_fixed/blob/311368c75e3be5cc1fc631ef257bbae501b3f605/src/lidar_odometry/imageProjection.cpp#L4-L17)
 ```
 cd ~/catkin_ws/src
 git clone https://github.com/TixiaoShan/LVI-SAM.git
@@ -29,52 +29,6 @@ catkin_make
 
 ---
 
-## Datasets
-
-<p align='center'>
-    <img src="./doc/sensor.jpeg" alt="drawing" width="600"/>
-</p>
-
-The datasets used in the paper can be downloaded from Google Drive. The data-gathering sensor suite includes: Velodyne VLP-16 lidar, FLIR BFS-U3-04S2M-CS camera, MicroStrain 3DM-GX5-25 IMU, and Reach RS+ GPS.
-
-```
-https://drive.google.com/drive/folders/1q2NZnsgNmezFemoxhHnrDnp1JV_bqrgV?usp=sharing
-```
-
-**Note** that the images in the provided bag files are in compressed format. So a decompression command is added at the last line of ```launch/module_sam.launch```. If your own bag records the raw image data, please comment this line out.
-
-<p align='center'>
-    <img src="./doc/jackal-earth.png" alt="drawing" width="286.5"/>
-    <img src="./doc/handheld-earth.png" alt="drawing" width="328"/>
-</p>
-
----
-
-## Run the package
-
-1. Configure parameters:
-
-```
-Configure sensor parameters in the .yaml files in the ```config``` folder.
-```
-
-2. Run the launch file:
-```
-roslaunch lvi_sam run.launch
-```
-
-3. Play existing bag files:
-```
-rosbag play handheld.bag 
-```
-
----
-
-## TODO
-
-  - [ ] Update graph optimization using all three factors in imuPreintegration.cpp, simplify mapOptimization.cpp, increase system stability 
-
----
 
 ## Paper 
 
