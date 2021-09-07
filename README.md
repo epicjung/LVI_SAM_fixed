@@ -16,7 +16,7 @@ This repository is a modified version of [LVI_SAM](https://github.com/TixiaoShan
 
 - Currently, the code is modified to use the ```Ouster```.
 - If you want to use the ```velodyne```, you have to uncomment [here](https://github.com/epicjung/LVI_SAM_fixed/blob/311368c75e3be5cc1fc631ef257bbae501b3f605/src/lidar_odometry/imageProjection.cpp#L4-L17) and [here](https://github.com/epicjung/LVI_SAM_fixed/blob/311368c75e3be5cc1fc631ef257bbae501b3f605/src/lidar_odometry/imageProjection.cpp#L523) and comment [here](https://github.com/epicjung/LVI_SAM_fixed/blob/311368c75e3be5cc1fc631ef257bbae501b3f605/src/lidar_odometry/imageProjection.cpp#L19-L35) and [here](https://github.com/epicjung/LVI_SAM_fixed/blob/311368c75e3be5cc1fc631ef257bbae501b3f605/src/lidar_odometry/imageProjection.cpp#L524).
-
+- Also, you need to change the .yaml file. 
 ---
 
 ## Acknowledgement
