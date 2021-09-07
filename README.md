@@ -8,29 +8,11 @@ This repository is a modified version of [LVI_SAM](https://github.com/TixiaoShan
 
 ---
 
-## Dependency
+## Modification
 
-- [ROS](http://wiki.ros.org/ROS/Installation) (Tested with kinetic and melodic)
-- [gtsam](https://github.com/borglab/gtsam/releases) (Georgia Tech Smoothing and Mapping library)
-  ```
-  wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.2.zip
-  cd ~/Downloads/ && unzip gtsam.zip -d ~/Downloads/
-  cd ~/Downloads/gtsam-4.0.2/
-  mkdir build && cd build
-  cmake -DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF ..
-  sudo make install -j4
-  ```
-- [Ceres](https://github.com/ceres-solver/ceres-solver/releases) (C++ library for modeling and solving large, complicated optimization problems)
-  ```
-  sudo apt-get install -y libgoogle-glog-dev
-  sudo apt-get install -y libatlas-base-dev
-  wget -O ~/Downloads/ceres.zip https://github.com/ceres-solver/ceres-solver/archive/1.14.0.zip
-  cd ~/Downloads/ && unzip ceres.zip -d ~/Downloads/
-  cd ~/Downloads/ceres-solver-1.14.0
-  mkdir ceres-bin && cd ceres-bin
-  cmake ..
-  sudo make install -j4
-  ```
+- Custom extrinsic parameters are adopted in the code.
+- The original code assumes there are no translations among sensors. Now extrinsic parameters including the translation and rotation among IMU, Camera, LiDAR in .yaml in the ```config``` folder are correctly used.
+
 
 ---
 
