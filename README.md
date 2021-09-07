@@ -2,10 +2,6 @@
 
 This repository is a modified version of [LVI_SAM](https://github.com/TixiaoShan/LVI-SAM).
 
-<p align='center'>
-    <img src="./doc/demo.gif" alt="drawing" width="800"/>
-</p>
-
 ---
 
 ## Modification
