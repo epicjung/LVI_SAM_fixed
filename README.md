@@ -1,4 +1,4 @@
-# LVI-SAM
+# LVI-SAM-MODIFIED
 
 This repository is a modified version of [LVI_SAM](https://github.com/TixiaoShan/LVI-SAM).
 
@@ -113,5 +113,4 @@ Thank you for citing our [paper](./doc/paper.pdf) if you use any of this code or
 
 ## Acknowledgement
 
-  - The visual-inertial odometry module is adapted from [Vins-Mono](https://github.com/HKUST-Aerial-Robotics/VINS-Mono).
-  - The lidar-inertial odometry module is adapted from [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM/tree/a246c960e3fca52b989abf888c8cf1fae25b7c25).
+  - The original version is from [LVI-SAM](https://github.com/TixiaoShan/LVI-SAM).
