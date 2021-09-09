@@ -9,7 +9,7 @@ This repository is a modified version of [LVI_SAM](https://github.com/TixiaoShan
 - Custom extrinsic parameters are adopted in the code.
 - The original code assumes there are no translation between the sensors. Now extrinsic parameters including both translation and rotation among IMU, Camera, LiDAR in .yaml in the ```config``` folder are correctly used.
   - params_lidar.yaml: lidar to imu extrinsic (i.e. imu pose w.r.t lidar frame)
-  - params_camera.yaml: imu to cam, lidar to cam, lidar to imu extrinsic (sorry for cubersome process ;()  
+  - params_camera.yaml: imu to cam, lidar to cam, lidar to imu extrinsic (sorry for the cubersome process...)  
 
 
 ---
