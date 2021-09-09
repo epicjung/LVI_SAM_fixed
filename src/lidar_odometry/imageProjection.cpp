@@ -433,14 +433,14 @@ public:
     {
         *posXCur = 0; *posYCur = 0; *posZCur = 0;
 
-        // if (cloudInfo.odomAvailable == false || odomDeskewFlag == false)
-        //     return;
+        if (cloudInfo.odomAvailable == false || odomDeskewFlag == false)
+            return;
 
-        // float ratio = relTime / (timeScanNext - timeScanCur);
+        float ratio = relTime / (timeScanNext - timeScanCur);
 
-        // *posXCur = ratio * odomIncreX;
-        // *posYCur = ratio * odomIncreY;
-        // *posZCur = ratio * odomIncreZ;
+        *posXCur = ratio * odomIncreX;
+        *posYCur = ratio * odomIncreY;
+        *posZCur = ratio * odomIncreZ;
     }
 
     PointType deskewPoint(PointType *point, double relTime)

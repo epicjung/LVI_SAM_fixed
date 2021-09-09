@@ -60,6 +60,8 @@ public:
     Eigen::MatrixXd poseCovariance;
 
     ros::Publisher pubLaserCloudSurround;
+    ros::Publisher pubCornerSurround;
+    ros::Publisher pubSurfSurround;
     ros::Publisher pubOdomAftMappedROS;
     ros::Publisher pubKeyPoses;
     ros::Publisher pubPath;
@@ -152,6 +154,8 @@ public:
 
         pubKeyPoses           = nh.advertise<sensor_msgs::PointCloud2>(PROJECT_NAME + "/lidar/mapping/trajectory", 1);
         pubLaserCloudSurround = nh.advertise<sensor_msgs::PointCloud2>(PROJECT_NAME + "/lidar/mapping/map_global", 1);
+        pubCornerSurround     = nh.advertise<sensor_msgs::PointCloud2>(PROJECT_NAME + "/lidar/mapping/map_corner", 1);
+        pubSurfSurround       = nh.advertise<sensor_msgs::PointCloud2>(PROJECT_NAME + "/lidar/mapping/map_surf", 1);
         pubOdomAftMappedROS   = nh.advertise<nav_msgs::Odometry>      (PROJECT_NAME + "/lidar/mapping/odometry", 1);
         pubPath               = nh.advertise<nav_msgs::Path>          (PROJECT_NAME + "/lidar/mapping/path", 1);
 
@@ -428,6 +432,9 @@ public:
         pcl::PointCloud<PointType>::Ptr globalMapKeyFrames(new pcl::PointCloud<PointType>());
         pcl::PointCloud<PointType>::Ptr globalMapKeyFramesDS(new pcl::PointCloud<PointType>());
 
+        pcl::PointCloud<PointType>::Ptr globalCornerMapKeyFrames(new pcl::PointCloud<PointType>());
+        pcl::PointCloud<PointType>::Ptr globalSurfMapKeyFrames(new pcl::PointCloud<PointType>());
+
         // kd-tree to find near key frames to visualize
         std::vector<int> pointSearchIndGlobalMap;
         std::vector<float> pointSearchSqDisGlobalMap;
@@ -452,13 +459,17 @@ public:
             int thisKeyInd = (int)globalMapKeyPosesDS->points[i].intensity;
             *globalMapKeyFrames += *transformPointCloud(cornerCloudKeyFrames[thisKeyInd],  &cloudKeyPoses6D->points[thisKeyInd]);
             *globalMapKeyFrames += *transformPointCloud(surfCloudKeyFrames[thisKeyInd],    &cloudKeyPoses6D->points[thisKeyInd]);
+            // *globalCornerMapKeyFrames += *transformPointCloud(cornerCloudKeyFrames[thisKeyInd],  &cloudKeyPoses6D->points[thisKeyInd]);
+            // *globalSurfMapKeyFrames += *transformPointCloud(surfCloudKeyFrames[thisKeyInd],    &cloudKeyPoses6D->points[thisKeyInd]);
         }
         // downsample visualized points
         pcl::VoxelGrid<PointType> downSizeFilterGlobalMapKeyFrames; // for global map visualization
         downSizeFilterGlobalMapKeyFrames.setLeafSize(globalMapVisualizationLeafSize, globalMapVisualizationLeafSize, globalMapVisualizationLeafSize); // for global map visualization
         downSizeFilterGlobalMapKeyFrames.setInputCloud(globalMapKeyFrames);
         downSizeFilterGlobalMapKeyFrames.filter(*globalMapKeyFramesDS);
-        publishCloud(&pubLaserCloudSurround, globalMapKeyFramesDS, timeLaserInfoStamp, "odom");    
+        publishCloud(&pubLaserCloudSurround, globalMapKeyFramesDS, timeLaserInfoStamp, "odom"); 
+        // publishCloud(&pubCornerSurround, globalCornerMapKeyFrames, timeLaserInfoStamp, "odom");
+        // publishCloud(&pubSurfSurround, globalSurfMapKeyFrames, timeLaserInfoStamp, "odom");
     }
 
 

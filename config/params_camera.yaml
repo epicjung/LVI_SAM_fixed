@@ -40,29 +40,6 @@ projection_parameters:
    cy: 136.52784729003906
 
 
-# fisheye_mask: ""
-
-# # camera model
-# model_type: MEI
-# camera_name: camera
-
-# # Mono camera config
-# image_width: 720
-# image_height: 540
-# mirror_parameters:
-#    xi: 1.9926618269451453
-# distortion_parameters:
-#    k1: -0.0399258932468764
-#    k2: 0.15160828121223818
-#    p1: 0.00017756967825777937
-#    p2: -0.0011531239076798612
-# projection_parameters:
-#    gamma1: 669.8940458885896
-#    gamma2: 669.1450614220616
-#    u0: 377.9459252967363
-#    v0: 279.63655686698144
-# fisheye_mask: "/config/fisheye_mask_720x540.jpg"
-
 #imu parameters       The more accurate parameters you provide, the worse performance
 acc_n: 0.08         # accelerometer measurement noise standard deviation.
 gyr_n: 0.04         # gyroscope measurement noise standard deviation.
@@ -106,8 +83,8 @@ extrinsicTranslation: !!opencv-matrix
 #    data: [0.0, 0.2539, -0.4681] 
 
 #feature traker paprameters
-max_cnt: 50            # max feature number in feature tracking
-min_dist: 10            # min distance between two features 
+max_cnt: 150            # max feature number in feature tracking
+min_dist: 5            # min distance between two features 
 freq: 0                # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image 
 F_threshold: 1.0        # ransac threshold (pixel)
 show_track: 1           # publish tracking image as topic

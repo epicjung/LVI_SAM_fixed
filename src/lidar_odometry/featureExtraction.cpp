@@ -234,6 +234,7 @@ public:
             downSizeFilter.filter(*surfaceCloudScanDS);
 
             *surfaceCloud += *surfaceCloudScanDS;
+            // *surfaceCloud += *surfaceCloudScan;
         }
     }
 
