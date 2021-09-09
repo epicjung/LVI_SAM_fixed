@@ -21,6 +21,12 @@ This repository is a modified version of [LVI_SAM](https://github.com/TixiaoShan
 - Also, you need to change the .yaml file. 
 ---
 
+## Some problems in LVI-SAM
+- The paper claims the system is tightly-coupled for its lidar-depth association mechanism and initial odometry from VINS for LIO-SAM optimization.
+- Yet, there are two odometries output from the system, one from VINS and one from LIO-SAM. You have to choose between the two and may require a hard switching, resulting in a sudden jump in the odometry.
+- More tightly-coupled system with one single odometry output should be developed to avoid the issue.
+
+---
 ## Acknowledgement
 
   - The original version is from [LVI-SAM](https://github.com/TixiaoShan/LVI-SAM).
