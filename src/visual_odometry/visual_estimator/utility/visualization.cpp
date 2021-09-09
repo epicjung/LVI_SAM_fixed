@@ -92,10 +92,8 @@ void pubLatestOdometry(const Eigen::Vector3d &P, const Eigen::Quaterniond &Q, co
 
     // euigon: transform imu frame to lidar frame
     tf::Transform t_world_imu = tf::Transform(tf::Quaternion(Q.x(), Q.y(), Q.z(), Q.w()), tf::Vector3(P.x(), P.y(), P.z()));
-    Eigen::Matrix3d extRot = Eigen::Matrix3d::Identity();
-    Eigen::Vector3d extTrans(-0.3787, 0.0, -0.6945);
-    Eigen::Vector3d ypr = extRot.eulerAngles(2, 1, 0);
-    tf::Quaternion q_lidar_imu = tf::createQuaternionFromRPY(ypr.z(), ypr.y(), ypr.x());
+    Eigen::Vector3d extTrans(L_I_TX, L_I_TY, L_I_TZ);
+    tf::Quaternion q_lidar_imu = tf::createQuaternionFromRPY(L_I_RX, L_I_RY, L_I_RZ);
     tf::Transform t_lidar_imu = tf::Transform(q_lidar_imu, tf::Vector3(extTrans.x(), extTrans.y(), extTrans.z()));
     tf::Transform t_imu_lidar = t_lidar_imu.inverse();
     tf::Transform t_world_lidar = t_world_imu * t_imu_lidar; 

@@ -27,11 +27,19 @@ double TD, TR;
 int USE_LIDAR;
 int ALIGN_CAMERA_LIDAR_COORDINATE;
 
+double L_I_TX;
+double L_I_TY;
+double L_I_TZ;
+double L_I_RX;
+double L_I_RY;
+double L_I_RZ;
 
 void readParameters(ros::NodeHandle &n)
 {
+    // Parse .yaml file for VINS
     std::string config_file;
     n.getParam("vins_config_file", config_file);
+    
     cv::FileStorage fsSettings(config_file, cv::FileStorage::READ);
     if(!fsSettings.isOpened())
     {
@@ -50,6 +58,13 @@ void readParameters(ros::NodeHandle &n)
     NUM_ITERATIONS = fsSettings["max_num_iterations"];
     MIN_PARALLAX = fsSettings["keyframe_parallax"];
     MIN_PARALLAX = MIN_PARALLAX / FOCAL_LENGTH;
+
+    L_I_TX = fsSettings["lidar_to_imu_tx"];
+    L_I_TY = fsSettings["lidar_to_imu_ty"];
+    L_I_TZ = fsSettings["lidar_to_imu_tz"];
+    L_I_RX = fsSettings["lidar_to_imu_rx"];
+    L_I_RY = fsSettings["lidar_to_imu_ry"];
+    L_I_RZ = fsSettings["lidar_to_imu_rz"];
 
     ACC_N = fsSettings["acc_n"];
     ACC_W = fsSettings["acc_w"];

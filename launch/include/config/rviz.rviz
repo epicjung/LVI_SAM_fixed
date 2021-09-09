@@ -76,15 +76,15 @@ Visualization Manager:
             imu_link:
               Value: false
             lidar_link:
-              Value: false
+              Value: true
             loam_camera:
               Value: false
             map:
-              Value: false
+              Value: true
             navsat_link:
               Value: false
             odom:
-              Value: false
+              Value: true
             os_imu:
               Value: false
             os_lidar:
@@ -96,13 +96,13 @@ Visualization Manager:
             velodyne:
               Value: false
             vins_body:
-              Value: false
+              Value: true
             vins_body_ros:
               Value: true
             vins_camera:
-              Value: false
+              Value: true
             vins_world:
-              Value: false
+              Value: true
           Marker Scale: 5
           Name: TF
           Show Arrows: true
@@ -150,7 +150,7 @@ Visualization Manager:
           Color: 255; 255; 255
           Color Transformer: Intensity
           Decay Time: 0
-          Enabled: false
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Max Intensity: 0
@@ -167,7 +167,7 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: false
-          Value: false
+          Value: true
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
@@ -183,9 +183,9 @@ Visualization Manager:
           Enabled: false
           Invert Rainbow: false
           Max Color: 255; 255; 255
-          Max Intensity: 136
+          Max Intensity: 5335.16650390625
           Min Color: 0; 0; 0
-          Min Intensity: 5
+          Min Intensity: 3
           Name: Depth cloud
           Position Transformer: XYZ
           Queue Size: 10
@@ -351,9 +351,9 @@ Visualization Manager:
           Enabled: false
           Invert Rainbow: false
           Max Color: 255; 255; 255
-          Max Intensity: 4820
+          Max Intensity: 2260
           Min Color: 0; 0; 0
-          Min Intensity: 2
+          Min Intensity: 3
           Name: Cloud (raw)
           Position Transformer: XYZ
           Queue Size: 10
@@ -408,12 +408,12 @@ Visualization Manager:
           Color: 255; 255; 255
           Color Transformer: Intensity
           Decay Time: 0
-          Enabled: true
+          Enabled: false
           Invert Rainbow: false
           Max Color: 255; 255; 255
-          Max Intensity: 100
+          Max Intensity: 1775.3636474609375
           Min Color: 0; 0; 0
-          Min Intensity: 0.5
+          Min Intensity: 4
           Name: Global Map
           Position Transformer: XYZ
           Queue Size: 10
@@ -425,7 +425,7 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: true
+          Value: false
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
@@ -468,7 +468,7 @@ Visualization Manager:
           Color: 245; 121; 0
           Color Transformer: FlatColor
           Decay Time: 0
-          Enabled: true
+          Enabled: false
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Max Intensity: 4820
@@ -485,7 +485,7 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: true
+          Value: false
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
@@ -791,7 +791,7 @@ Visualization Manager:
           Color: 245; 121; 0
           Color Transformer: FlatColor
           Decay Time: 0
-          Enabled: false
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Max Intensity: 106
@@ -808,7 +808,7 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: false
+          Value: true
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
@@ -851,7 +851,7 @@ Visualization Manager:
           Color: 0; 255; 0
           Color Transformer: FlatColor
           Decay Time: 0
-          Enabled: false
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Max Intensity: 106
@@ -868,7 +868,7 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: false
+          Value: true
       Enabled: true
       Name: test_clouds
     - Class: rviz/Group
@@ -947,25 +947,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 9.61161994934082
+      Distance: 33.699485778808594
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 6.448265075683594
-        Y: 10.23340129852295
-        Z: 1.299173355102539
+        X: 4.4736151695251465
+        Y: -3.447086811065674
+        Z: 4.8214898109436035
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.4997963905334473
+      Pitch: 0.5797972679138184
       Target Frame: map
       Value: Orbit (rviz)
-      Yaw: 3.0703914165496826
+      Yaw: 1.3803905248641968
     Saved: ~
 Window Geometry:
   Displays:

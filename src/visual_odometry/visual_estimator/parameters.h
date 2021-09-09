@@ -88,6 +88,13 @@ extern double ROW, COL;
 extern int USE_LIDAR;
 extern int ALIGN_CAMERA_LIDAR_COORDINATE;
 
+extern double L_I_TX;
+extern double L_I_TY;
+extern double L_I_TZ;
+extern double L_I_RX;
+extern double L_I_RY;
+extern double L_I_RZ;
+
 void readParameters(ros::NodeHandle &n);
 
 enum SIZE_PARAMETERIZATION

@@ -258,18 +258,18 @@ void lidar_callback(const sensor_msgs::PointCloud2ConstPtr& laser_msg)
     // 2. downsample new cloud (save memory)
     pcl::PointCloud<PointType>::Ptr laser_cloud_in_ds(new pcl::PointCloud<PointType>());
     static pcl::VoxelGrid<PointType> downSizeFilter;
-    // downSizeFilter.setLeafSize(0.2, 0.2, 0.2);
-    // downSizeFilter.setInputCloud(laser_cloud_in);
-    // downSizeFilter.filter(*laser_cloud_in_ds);
-    // *laser_cloud_in = *laser_cloud_in_ds;
+    downSizeFilter.setLeafSize(0.2, 0.2, 0.2);
+    downSizeFilter.setInputCloud(laser_cloud_in);
+    downSizeFilter.filter(*laser_cloud_in_ds);
+    *laser_cloud_in = *laser_cloud_in_ds;
 
     // 3. filter lidar points (only keep points in camera view)
     pcl::PointCloud<PointType>::Ptr laser_cloud_in_filter(new pcl::PointCloud<PointType>());
     for (int i = 0; i < (int)laser_cloud_in->size(); ++i)
     {
         PointType p = laser_cloud_in->points[i];
-        // if (p.x >= 0 && abs(p.y / p.x) <= 10 && abs(p.z / p.x) <= 10)
-        laser_cloud_in_filter->push_back(p);
+        if (p.x >= 0 && abs(p.y / p.x) <= 10 && abs(p.z / p.x) <= 10)
+            laser_cloud_in_filter->push_back(p);
     }
     *laser_cloud_in = *laser_cloud_in_filter;
 

@@ -58,7 +58,6 @@ using namespace std;
 
 typedef pcl::PointXYZI PointType;
 
-
 class ParamServer
 {
 public:
