@@ -17,9 +17,9 @@ align_camera_lidar_estimation: 0 # align camera and lidar estimation for visuali
 lidar_to_cam_tx: -0.13
 lidar_to_cam_ty: -0.02
 lidar_to_cam_tz: -0.18
-lidar_to_cam_rx: 0.0
-lidar_to_cam_ry: -1.5707963
-lidar_to_cam_rz: 1.5707963
+lidar_to_cam_rx: -1.570793
+lidar_to_cam_ry: 0
+lidar_to_cam_rz: -1.5707963
 
 # lidar to imu extrinsic 
 lidar_to_imu_tx: -0.3787
