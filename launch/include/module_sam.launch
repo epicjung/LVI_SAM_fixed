@@ -20,6 +20,6 @@
 
     <!-- Image conversion -->
     <!-- <node pkg="image_transport" type="republish" name="$(arg project)_republish" args="compressed in:=/camera/image_raw raw out:=/camera/image_raw" output="screen" respawn="true"/> -->
-    <node name="republish" type="republish" pkg="image_transport" output="screen" args="compressed in:=/rgb/image_raw out:=/camera/image"/>
+    <node name="republish" type="republish" pkg="image_transport" output="screen" args="compressed in:=/rgb/image_raw raw out:=/camera/image"/>
 
 </launch>
