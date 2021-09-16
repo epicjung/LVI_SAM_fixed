@@ -22,20 +22,19 @@ find_package(catkin REQUIRED COMPONENTS
     geometry_msgs
     nav_msgs
     # cv
-    cv_bridge
     # pcl
     pcl_conversions
+    cv_bridge
     # msg generation
     message_generation
 )
 
 find_package(OpenMP REQUIRED)
 find_package(PCL REQUIRED)
-find_package(OpenCV REQUIRED)
+find_package(OpenCV 2 REQUIRED)
 find_package(Ceres REQUIRED)
 find_package(GTSAM REQUIRED QUIET)
 find_package(Boost REQUIRED COMPONENTS filesystem program_options system)
-
 
 ######################
 ### Message generation
@@ -100,13 +99,13 @@ file(GLOB visual_loop_files
 )
 # Visual Feature Tracker
 add_executable(${PROJECT_NAME}_visual_feature ${visual_feature_files})
-target_link_libraries(${PROJECT_NAME}_visual_feature ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}_visual_feature ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} ${CERES_LIBRARIES})
 # Visual Odometry
 add_executable(${PROJECT_NAME}_visual_odometry ${visual_odometry_files})
-target_link_libraries(${PROJECT_NAME}_visual_odometry ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES}) 
+target_link_libraries(${PROJECT_NAME}_visual_odometry ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} ${CERES_LIBRARIES}) 
 # Visual Lopp
 add_executable(${PROJECT_NAME}_visual_loop ${visual_loop_files})
-target_link_libraries(${PROJECT_NAME}_visual_loop ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES}) 
+target_link_libraries(${PROJECT_NAME}_visual_loop ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} ${CERES_LIBRARIES}) 
 
 ######################
 ### lidar odometry
@@ -128,3 +127,7 @@ add_executable(${PROJECT_NAME}_mapOptmization src/lidar_odometry/mapOptmization.
 add_dependencies(${PROJECT_NAME}_mapOptmization ${catkin_EXPORTED_TARGETS} ${PROJECT_NAME}_generate_messages_cpp)
 target_compile_options(${PROJECT_NAME}_mapOptmization PRIVATE ${OpenMP_CXX_FLAGS})
 target_link_libraries(${PROJECT_NAME}_mapOptmization PRIVATE ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} ${OpenMP_CXX_FLAGS} gtsam)
+message(STATUS "version: ${OpenCV_VERSION}")
+message(STATUS "version: ${OpenCV_DIR}")
+message(STATUS "version: ${OPENCV_VERSION}")
+message(STATUS "version: ${OPENCV_VERSION}")
